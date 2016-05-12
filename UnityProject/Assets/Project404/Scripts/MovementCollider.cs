@@ -16,14 +16,15 @@ public class MovementCollider : MonoBehaviour {
 	
 	}
 	void OnTriggerEnter(Collider other){
-			Debug.Log("collido e basta con " + other.name );
+			//Debug.Log("collido e basta con " + other.name );
 	 	if(other.GetComponent<RoadNode>()!= null ) {
 			if(mc.ActualNode == null)
 				mc.ActualNode = nm.GetFirstNode();
 		RoadNode nextNode = nm.GetNextNode(mc.ActualNode);
 			
 			if (nextNode != null){
-				mc.ActualNode = nextNode;
+					Debug.Log("cambio valore ad actual node");
+					mc.ActualNode =nextNode;
 			}
 		//Debug.Log("node " + actualNode.name + "-> "+nextNode.name);
 		}

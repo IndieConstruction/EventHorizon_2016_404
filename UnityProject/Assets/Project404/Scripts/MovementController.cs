@@ -6,10 +6,12 @@ namespace EH.Project404{
 		public float speed;
 		RoadNode actualNode;
 		public bool ReverseMovement = false;
+
 		public RoadNode ActualNode {
 			get{
 
-				return actualNode;}
+				return actualNode;
+			}
 			set{
 				if(actualNode != value){
 					if(ReverseMovement)
@@ -31,16 +33,14 @@ namespace EH.Project404{
 		}
 
 		public void Movement () {
-			if(ReverseMovement)
-				transform.LookAt(-ActualNode.transform.position);
-			else
-				transform.LookAt(ActualNode.transform);
-			if (ReverseMovement == true) {
-				transform.Translate (Vector3.back * Time.deltaTime * speed);
-			}
-			else {
-				transform.Translate (Vector3.forward * Time.deltaTime * speed);
-			}
+			transform.position = Vector3.MoveTowards(this.transform.position,ActualNode.transform.position,0.5f);
+//			transform.LookAt (-ActualNode.transform.position);
+//			if (ReverseMovement)
+//				transform.Translate (Vector3.back * Time.deltaTime * speed);
+//			
+//			else {
+//				transform.Translate (Vector3.forward * Time.deltaTime * speed);
+//			}
 
 			
 		}
