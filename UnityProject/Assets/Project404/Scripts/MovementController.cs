@@ -33,7 +33,7 @@ namespace EH.Project404{
 		}
 
 		public void Movement () {
-			transform.position = Vector3.MoveTowards(this.transform.position,ActualNode.transform.position,0.5f);
+			transform.position = Vector3.MoveTowards(this.transform.position,ActualNode.transform.position,0.3f);
 //			transform.LookAt (-ActualNode.transform.position);
 //			if (ReverseMovement)
 //				transform.Translate (Vector3.back * Time.deltaTime * speed);
