@@ -28,7 +28,7 @@ public class NodesManager : MonoBehaviour {
 		return null;
 	}
 		public void AddNodes (List<RoadNode> nodesToAdd){
-			//TODO Spostare prima la transform di questo nodo sotto RoadManager
+			
 			//TODO Salvare in una variabile il transform iniziale dell'ultimo nodo
 			nodes.AddRange(nodesToAdd);
 		}

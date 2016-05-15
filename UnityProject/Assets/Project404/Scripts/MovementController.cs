@@ -44,6 +44,14 @@ namespace EH.Project404{
 
 			
 		}
+		void OnTriggerEnter (Collider other){
+			SpawnController spCntrl = other.GetComponent<SpawnController> (); 
+			if (spCntrl != null) {
+				spCntrl.RandomSpawnItems ();
+				Vector3 newPos = new Vector3 (0,0,386);
+				spCntrl.transform.position = spCntrl.transform.position - newPos;
+			}
+		}
 
 	}
 }
