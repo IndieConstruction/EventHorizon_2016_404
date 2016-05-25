@@ -7,6 +7,7 @@ public class SpawnController : MonoBehaviour {
 		public GameObject [] Roads;
 		public Transform spawnPosition;
 		public GameObject RoadContainer;
+		public GameObject FinalRoad;
 		void OnEnable () {
 			GameManager.OnPreSetUp += OnPreSetUp;
 	
@@ -56,6 +57,8 @@ public class SpawnController : MonoBehaviour {
 
 		}
 		 //TODO funzione per spawnare il pezzo iniziale e finale di strada ( con un collider )
-
+		public void SpawnFinalRoad(){
+			spawnPosition = Spawn (FinalRoad, spawnPosition);
+		}
 }
 }

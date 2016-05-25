@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace EH.Project404{
 public class Player : MonoBehaviour {
+		public bool Alive = true;
 		Animator animator;
 		public int PlayerDimension;
 		public int MaxPlayerDimension;

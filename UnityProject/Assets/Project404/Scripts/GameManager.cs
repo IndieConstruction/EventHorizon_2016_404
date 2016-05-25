@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 namespace EH.Project404{
 public class GameManager : MonoBehaviour {
 		public RoadNode roadNode;
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour {
 		public static GameEvent OnPreSetUp;
 		public static GameEvent OnSetUp;
 		public static GameEvent OnPostSetUp;
+		public static GameEvent OnGameOver;
+
 		#endregion
 		void Start () {
 			PreSetUp();
@@ -33,10 +36,12 @@ public class GameManager : MonoBehaviour {
 		}
 
 		void SetUp () {
+
 			MaxRoadsInGame = MaxRoadsInGame - RoadsOnStart;
 			for (int i = 0; i < RoadsOnStart; i++) {
 				spawnC.RandomSpawnItems();
 			}
+			spawnC.SpawnFinalRoad ();
 			if (OnSetUp != null) {
 				OnSetUp(this);
 			}
@@ -48,6 +53,13 @@ public class GameManager : MonoBehaviour {
 				OnPostSetUp(this);
 			}
 		}
+
+	public void GameOver () {
+	//		SceneManager.LoadScene ("GameOver");
+			Debug.Log ("gameover");
+
+		}
+
 		void OnTriggerEnter (Collider other) {
 			if (other.tag == "Road" && Infinite == false){
 				
@@ -62,13 +74,12 @@ public class GameManager : MonoBehaviour {
 				}
 		
 			
-//				RoadNode roadNode = other.GetComponent<RoadNode>();
-//				nm.RemoveNodes();
+
 				Destroy(other.gameObject, 1.0f);
 
 			}
 			else if (other.tag == "Road" && Infinite == true) {
-				Debug.Log("Infinito");
+				
 				spawnC.RandomSpawnItems();
 				Destroy(other.gameObject, 5.0f);
 
