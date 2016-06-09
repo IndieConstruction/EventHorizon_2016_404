@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 namespace EH.Project404{
 public class GameManager : MonoBehaviour {
+		GameOverComponent gameOver;
 		public RoadNode roadNode;
 		public NodesManager nm;
 		public SpawnController spawnC;
@@ -10,12 +11,25 @@ public class GameManager : MonoBehaviour {
 		public int RoadsOnStart =2;
 		public bool Infinite = false;
 		public int MaxRoadsInGame = 6;
+		public string ActualLevel;
+
+		#region PerfectLevel
+		public int counterLev1;
+		public int counterLev2;
+		public int counterLev3;
+		public int totGoldenBonus1;
+		public int totGoldenBonus2;
+		public int totGoldenBonus3;
+		#endregion
+
 		#region Events
 		public delegate void GameEvent(GameManager gm);
 		public static GameEvent OnPreSetUp;
 		public static GameEvent OnSetUp;
 		public static GameEvent OnPostSetUp;
 		public static GameEvent OnGameOver;
+		public static GameEvent OnGamePaused;
+		public static GameEvent OnGameResumed;
 
 		#endregion
 		void Start () {
@@ -27,6 +41,9 @@ public class GameManager : MonoBehaviour {
 		/// Riempie tutte le referenze
 		/// </summary>
 		void PreSetUp () {
+			
+			gameOver = FindObjectOfType<GameOverComponent>();
+			gameOver.gameManager = this;
 			nm = FindObjectOfType<NodesManager>();
 			RoadContainer = GameObject.FindGameObjectWithTag("RoadContainer");
 			spawnC = FindObjectOfType<SpawnController>();
@@ -55,9 +72,24 @@ public class GameManager : MonoBehaviour {
 		}
 
 	public void GameOver () {
-	//		SceneManager.LoadScene ("GameOver");
-			Debug.Log ("gameover");
+			gameOver.SetWindowVisible(true);
 
+			if (OnGameOver != null)
+				OnGameOver(this);
+			
+		}
+		public void GamePaused () {
+			gameOver.State = GameOverComponent.GameOverState.Paused;
+			gameOver.SetWindowVisible(true);
+
+			if (OnGamePaused !=null)
+				OnGamePaused (this);
+			
+		}
+		public void GameResumed () {
+			if (OnGameResumed !=null)
+				OnGameResumed(this);	
+			gameOver.SetWindowVisible(false);
 		}
 
 		void OnTriggerEnter (Collider other) {
@@ -86,6 +118,54 @@ public class GameManager : MonoBehaviour {
 			}
 
 		}
+		/// <summary>
+		/// Restarts the level.
+		/// </summary>
+		public void RestartLevel (string ActualLevel) {
+			switch (ActualLevel) {
+			case "0":
+				SceneManager.LoadScene("LevelZero");
+			
+				break;
+			case "1":
+				SceneManager.LoadScene("GameScene");
 
+				break;
+			case "2":
+				SceneManager.LoadScene("LevelTwo");
+
+				break;
+			case "3":
+				SceneManager.LoadScene("LevelThree");
+
+				break;
+			}
+
+		}
+		void Update () {
+			if (Input.GetKey(KeyCode.Escape)){
+				GamePaused();
+			}
+		}
+
+		public void GoldenBonus(){
+			
+		//controllare in che livello si trova
+
+			// aumenta il contatore del livello attuale
+			switch (ActualLevel) {
+			case "1":
+				counterLev1++;
+				break;
+			case "2":
+				counterLev2++;
+				break;
+			case "3":
+				counterLev3++;
+				break;
+			default:
+				break;
+			}
+		}
 }
 }

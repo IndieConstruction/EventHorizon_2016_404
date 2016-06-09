@@ -3,6 +3,8 @@ using System.Collections;
 
 namespace EH.Project404{
 public class Player : MonoBehaviour {
+		public GameManager gameMan;
+		public MovementController movementC;
 		public bool Alive = true;
 		Animator animator;
 		public int PlayerDimension;
@@ -16,6 +18,15 @@ public class Player : MonoBehaviour {
 		public int BonusStadio3;
 		public int BonusStadio4;
 		public int BonusStadio5;
+		public float SpeedStadio1;
+		public float SpeedStadio2;
+		public float SpeedStadio3;
+		public float SpeedStadio4;
+		public float SpeedStadio5;
+
+		void OnEnable (){
+			GameManager.OnPreSetUp += PreSetUp;
+		}
 	// Use this for initialization
 	void Start () {
 			rb = gameObject.GetComponentInChildren<Rigidbody> ();
@@ -26,7 +37,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-			Move ();
+	
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				PlayerDimension --;
 				BonusCounter =0;
@@ -42,25 +53,13 @@ public class Player : MonoBehaviour {
 
 	}
 
+		void PreSetUp (GameManager gameManager) {
+			gameMan = gameManager; 
+		}
+
 		//movimento della sfera
-	void Move () {
-			float speed = 4.0f;
-
-			float translationX = Input.GetAxisRaw("Horizontal") * speed;
-			//translationZ *= Time.deltaTime;
-			translationX *= Time.deltaTime;
-			
-			transform.Translate(translationX, 0, 0);
-			//transform.Rotate (Vector3.right * Time.deltaTime * speed *10);
-	
-		}
-
-		void OnTriggerEnter ( Collider other ) {
 
 
-
-
-		}
 		/// <summary>
 		/// The minimum permitted dimension.
 		/// </summary>
@@ -80,6 +79,36 @@ public class Player : MonoBehaviour {
 		public void Jump () {
 			animator.SetTrigger("Jump");
 
+		}
+		public void BonusEffect(){
+			if (BonusCounter <= BonusStadio1) {
+
+				return;
+			}
+			if (BonusCounter > BonusStadio1 && BonusCounter <=BonusStadio2) {
+
+				transform.localScale = new Vector3 (1.3f, 1.3f, 1.3f);
+				PlayerDimension =1;
+				movementC.speed = SpeedStadio2;
+			}
+			else if (BonusCounter >BonusStadio2 && BonusCounter <=BonusStadio3) {
+
+				transform.localScale = new Vector3 (1.6f, 1.6f, 1.6f);
+				PlayerDimension =2;
+				movementC.speed = SpeedStadio3;
+			}
+			else if (BonusCounter >BonusStadio3 && BonusCounter <=BonusStadio4) {
+
+				transform.localScale = new Vector3 (1.9f, 1.9f, 1.9f);
+				PlayerDimension =3;
+				movementC.speed = SpeedStadio4;
+			}
+			else if (BonusCounter >BonusStadio4 && BonusCounter <=BonusStadio5) {
+
+				transform.localScale = new Vector3 (2.2f, 2.2f, 2.2f);
+				PlayerDimension =4;
+				movementC.speed = SpeedStadio5;
+			}
 		}
 	}
 }
