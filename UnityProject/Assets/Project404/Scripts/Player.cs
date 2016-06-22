@@ -3,11 +3,12 @@ using System.Collections;
 
 namespace EH.Project404{
 public class Player : MonoBehaviour {
+		
 		public GameManager gameMan;
 		public MovementController movementC;
 		public bool Alive = true;
 		Animator animator;
-		public int PlayerDimension;
+		public int PlayerDimension =1;
 		public int MaxPlayerDimension;
 		public int MinPlayerDimension;
 		public float JumpSpeed = 450;
@@ -24,6 +25,9 @@ public class Player : MonoBehaviour {
 		public float SpeedStadio4;
 		public float SpeedStadio5;
 
+		// blob graphic
+		public Transform blob;
+
 		void OnEnable (){
 			GameManager.OnPreSetUp += PreSetUp;
 		}
@@ -39,8 +43,12 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
 	
 			if (Input.GetKeyDown(KeyCode.Space)) {
-				PlayerDimension --;
-				BonusCounter =0;
+				if (BonusCounter <= 0){
+					BonusCounter = 0;
+					return;
+				}
+				BonusCounter --;
+				BonusEffect();
 				if (PlayerDimension <= MinPlayerDimension){
 					PlayerDimension=MinPlayerDimension;
 				}
@@ -85,28 +93,36 @@ public class Player : MonoBehaviour {
 
 				return;
 			}
-			if (BonusCounter > BonusStadio1 && BonusCounter <=BonusStadio2) {
-
-				transform.localScale = new Vector3 (1.3f, 1.3f, 1.3f);
+			if (BonusCounter <=BonusStadio2) {
+				// Stadio 1
+				transform.localScale = new Vector3 (1, 1, 1);
+				//blob.position = new Vector3 ( blob.position.x, 0.0f,blob.position.z);
 				PlayerDimension =1;
-				movementC.speed = SpeedStadio2;
+				movementC.speed = SpeedStadio1;
 			}
 			else if (BonusCounter >BonusStadio2 && BonusCounter <=BonusStadio3) {
-
-				transform.localScale = new Vector3 (1.6f, 1.6f, 1.6f);
+				// Stadio 2
+				transform.localScale = new Vector3 (1.3f, 1.3f, 1.3f);
+				//blob.position = new Vector3 ( blob.position.x, 0.35f,blob.position.z);
 				PlayerDimension =2;
-				movementC.speed = SpeedStadio3;
+				movementC.speed = SpeedStadio2;
 			}
 			else if (BonusCounter >BonusStadio3 && BonusCounter <=BonusStadio4) {
-
-				transform.localScale = new Vector3 (1.9f, 1.9f, 1.9f);
+				// Stadio 3
+				transform.localScale = new Vector3 (1.6f, 1.6f, 1.6f);
 				PlayerDimension =3;
-				movementC.speed = SpeedStadio4;
+				movementC.speed = SpeedStadio3;
 			}
 			else if (BonusCounter >BonusStadio4 && BonusCounter <=BonusStadio5) {
-
-				transform.localScale = new Vector3 (2.2f, 2.2f, 2.2f);
+				// Stadio 4
+				transform.localScale = new Vector3 (1.9f, 1.9f, 1.9f);
 				PlayerDimension =4;
+				movementC.speed = SpeedStadio4;
+			}
+			else if (BonusCounter > BonusStadio5) {
+				// Stadio 5
+				transform.localScale = new Vector3 (2.2f, 2.2f, 2.2f);
+				PlayerDimension =5;
 				movementC.speed = SpeedStadio5;
 			}
 		}
