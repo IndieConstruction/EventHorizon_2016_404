@@ -3,6 +3,10 @@ using System.Collections;
 namespace EH.Project404{
 
 	public class YouWin : MonoBehaviour, IEffector {
+		public Transform pareteStatica;
+		public Transform pareteAnimata;
+
+		public Animation animation;
 		public GameManager gm;
 
 		public GameOverComponent gameover;
@@ -24,8 +28,10 @@ namespace EH.Project404{
 		}
 		public void ApplyEffect(Player p ){
 			
-
+			pareteStatica.gameObject.SetActive(false);
+			animation.Play();
 			gameover.State = GameOverComponent.GameOverState.Win;
+
 			gm.GameOver();
 		}
 

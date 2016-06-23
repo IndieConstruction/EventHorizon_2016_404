@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 namespace EH.Project404{
 public class LevelManager : MonoBehaviour {
 	public bool Level0UnLocked = true;
@@ -91,6 +92,10 @@ public class LevelManager : MonoBehaviour {
 				PlayerPrefs.DeleteAll();
 			}
 
+		}
+		public void InfiniteGame () {
+			
+			SceneManager.LoadScene("InfiniteGame");
 		}
 
 		}

@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 		}
 	// Use this for initialization
 	void Start () {
+			BonusEffect();
 			rb = gameObject.GetComponentInChildren<Rigidbody> ();
 			PlayerDimension = 1;
 			BonusCounter = 0;
@@ -96,31 +97,34 @@ public class Player : MonoBehaviour {
 			if (BonusCounter <=BonusStadio2) {
 				// Stadio 1
 				transform.localScale = new Vector3 (1, 1, 1);
-				//blob.position = new Vector3 ( blob.position.x, 0.0f,blob.position.z);
+				blob.position = new Vector3 ( blob.position.x, -0.5f,blob.position.z);
 				PlayerDimension =1;
 				movementC.speed = SpeedStadio1;
 			}
 			else if (BonusCounter >BonusStadio2 && BonusCounter <=BonusStadio3) {
 				// Stadio 2
 				transform.localScale = new Vector3 (1.3f, 1.3f, 1.3f);
-				//blob.position = new Vector3 ( blob.position.x, 0.35f,blob.position.z);
+				blob.position = new Vector3 ( blob.position.x, -0.4f,blob.position.z);
 				PlayerDimension =2;
 				movementC.speed = SpeedStadio2;
 			}
 			else if (BonusCounter >BonusStadio3 && BonusCounter <=BonusStadio4) {
 				// Stadio 3
+				blob.position = new Vector3 ( blob.position.x, -0.4f,blob.position.z);
 				transform.localScale = new Vector3 (1.6f, 1.6f, 1.6f);
 				PlayerDimension =3;
 				movementC.speed = SpeedStadio3;
 			}
 			else if (BonusCounter >BonusStadio4 && BonusCounter <=BonusStadio5) {
 				// Stadio 4
+				blob.position = new Vector3 ( blob.position.x, -0.35f,blob.position.z);
 				transform.localScale = new Vector3 (1.9f, 1.9f, 1.9f);
 				PlayerDimension =4;
 				movementC.speed = SpeedStadio4;
 			}
 			else if (BonusCounter > BonusStadio5) {
 				// Stadio 5
+				blob.position = new Vector3 ( blob.position.x, -0.3f,blob.position.z);
 				transform.localScale = new Vector3 (2.2f, 2.2f, 2.2f);
 				PlayerDimension =5;
 				movementC.speed = SpeedStadio5;

@@ -56,7 +56,7 @@ public class SpawnController : MonoBehaviour {
 
 
 		}
-		 //TODO funzione per spawnare il pezzo iniziale e finale di strada ( con un collider )
+	
 		public void SpawnFinalRoad(){
 			spawnPosition = Spawn (FinalRoad, spawnPosition);
 		}

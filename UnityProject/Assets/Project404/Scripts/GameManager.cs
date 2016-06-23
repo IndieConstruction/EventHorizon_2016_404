@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour {
 		public static GameEvent OnGameResumed;
 
 		#endregion
+
+		FMOD_SoundManager soundManager;
+
 		void Start () {
 			PreSetUp();
 			SetUp();
@@ -41,7 +44,7 @@ public class GameManager : MonoBehaviour {
 		/// Riempie tutte le referenze
 		/// </summary>
 		void PreSetUp () {
-			
+			soundManager = FindObjectOfType< FMOD_SoundManager>();
 			gameOver = FindObjectOfType<GameOverComponent>();
 			gameOver.gameManager = this;
 			nm = FindObjectOfType<NodesManager>();
@@ -58,6 +61,7 @@ public class GameManager : MonoBehaviour {
 			for (int i = 0; i < RoadsOnStart; i++) {
 				spawnC.RandomSpawnItems();
 			}
+			if (Infinite == false)
 			spawnC.SpawnFinalRoad ();
 			if (OnSetUp != null) {
 				OnSetUp(this);
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour {
 				OnGameOver(this);
 			
 		}
+
 		public void GamePaused () {
 			gameOver.State = GameOverComponent.GameOverState.Paused;
 			gameOver.SetWindowVisible(true);
@@ -91,7 +96,10 @@ public class GameManager : MonoBehaviour {
 				OnGameResumed(this);	
 			gameOver.SetWindowVisible(false);
 		}
-
+//		public void InfiniteGame () {
+//			Infinite = true;
+//			SceneManager.LoadScene("InfiniteGame");
+//		}
 		void OnTriggerEnter (Collider other) {
 			if (other.tag == "Road" && Infinite == false){
 				
@@ -104,8 +112,6 @@ public class GameManager : MonoBehaviour {
 				if (MaxRoadsInGame <= 0) {
 					Debug.Log ("Fine");
 				}
-		
-			
 
 				Destroy(other.gameObject, 1.0f);
 
@@ -113,8 +119,8 @@ public class GameManager : MonoBehaviour {
 			else if (other.tag == "Road" && Infinite == true) {
 				
 				spawnC.RandomSpawnItems();
-				Destroy(other.gameObject, 5.0f);
-
+				Destroy(other.gameObject, 30.0f);
+				Debug.Log("INFINITO");
 			}
 
 		}
