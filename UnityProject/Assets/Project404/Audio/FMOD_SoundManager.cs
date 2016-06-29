@@ -157,52 +157,52 @@ public class FMOD_SoundManager : MonoBehaviour
 
 
 		public void Blob_UrchinExplosion(){
-			/*
+			
 			EventInstance EVT_SND_Blob_UrchinExplosion = RuntimeManager.CreateInstance(SND_Blob_UrchinExplosion);
 			RuntimeManager.PlayOneShot(EVT_SND_Blob_UrchinExplosion);
-			*/
+
 		}
 
 
 		public void Anchor_Hit(){
-			/*
+			
 			EventInstance EVT_SND_Anchor_Hit = RuntimeManager.CreateInstance(SND_Anchor_Hit);
 			RuntimeManager.PlayOneShot(EVT_SND_Anchor_Hit);
-			*/
+
 		}
 
 
 		public void Anchor_Destroyed(){
-//			EventInstance EVT_SND_Anchor_Destroyed = RuntimeManager.CreateInstance(SND_Anchor_Destroyed);
-//			RuntimeManager.PlayOneShot(EVT_SND_Anchor_Destroyed);
+			EventInstance EVT_SND_Anchor_Destroyed = RuntimeManager.CreateInstance(SND_Anchor_Destroyed);
+			RuntimeManager.PlayOneShot(EVT_SND_Anchor_Destroyed);
 		}
 
 
 		public void Urn_Hit(){
-//			EventInstance EVT_SND_Urn_Hit = RuntimeManager.CreateInstance(SND_Urn_Hit);
-//			RuntimeManager.PlayOneShot(EVT_SND_Urn_Hit);
+			EventInstance EVT_SND_Urn_Hit = RuntimeManager.CreateInstance(SND_Urn_Hit);
+			RuntimeManager.PlayOneShot(EVT_SND_Urn_Hit);
 		}
 
 		public void Urn_Destroyed(){
-//			EventInstance EVT_SND_Urn_Destroyed = RuntimeManager.CreateInstance(SND_Urn_Destroyed);
-//			RuntimeManager.PlayOneShot(EVT_SND_Urn_Destroyed);
+			EventInstance EVT_SND_Urn_Destroyed = RuntimeManager.CreateInstance(SND_Urn_Destroyed);
+			RuntimeManager.PlayOneShot(EVT_SND_Urn_Destroyed);
 		}
 
 
 		public void Coral_Green_Hit(){
-//			EventInstance EVT_SND_Coral_Green_Hit = RuntimeManager.CreateInstance(SND_Coral_Green_Hit);
-//			RuntimeManager.PlayOneShot(EVT_SND_Coral_Green_Hit);
+			EventInstance EVT_SND_Coral_Green_Hit = RuntimeManager.CreateInstance(SND_Coral_Green_Hit);
+			RuntimeManager.PlayOneShot(EVT_SND_Coral_Green_Hit);
 		}
 
 
 		public void Coral_Red_Hit(){
-//			EventInstance EVT_SND_Coral_Red_Hit = RuntimeManager.CreateInstance(SND_Coral_Red_Hit);
-//			RuntimeManager.PlayOneShot(EVT_SND_Coral_Red_Hit);
+			EventInstance EVT_SND_Coral_Red_Hit = RuntimeManager.CreateInstance(SND_Coral_Red_Hit);
+			RuntimeManager.PlayOneShot(EVT_SND_Coral_Red_Hit);
 		}
 
 		public void Coral_Green_Destroyed(){
-//			EventInstance EVT_SND_Coral_Green_Destroyed = RuntimeManager.CreateInstance(SND_Coral_Green_Destroyed);
-//			RuntimeManager.PlayOneShot(EVT_SND_Coral_Green_Destroyed);
+			EventInstance EVT_SND_Coral_Green_Destroyed = RuntimeManager.CreateInstance(SND_Coral_Green_Destroyed);
+			RuntimeManager.PlayOneShot(EVT_SND_Coral_Green_Destroyed);
 		}
 
 		public void Ambience(){
