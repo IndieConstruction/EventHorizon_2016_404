@@ -159,7 +159,7 @@ public class FMOD_SoundManager : MonoBehaviour
 		public void Blob_UrchinExplosion(){
 			
 			EventInstance EVT_SND_Blob_UrchinExplosion = RuntimeManager.CreateInstance(SND_Blob_UrchinExplosion);
-			RuntimeManager.PlayOneShot(EVT_SND_Blob_UrchinExplosion);
+			EVT_SND_Blob_UrchinExplosion.start();
 
 		}
 
@@ -167,43 +167,39 @@ public class FMOD_SoundManager : MonoBehaviour
 		public void Anchor_Hit(){
 			
 			EventInstance EVT_SND_Anchor_Hit = RuntimeManager.CreateInstance(SND_Anchor_Hit);
-			RuntimeManager.PlayOneShot(EVT_SND_Anchor_Hit);
+			EVT_SND_Anchor_Hit.start();
 
 		}
 
 
 		public void Anchor_Destroyed(){
 			EventInstance EVT_SND_Anchor_Destroyed = RuntimeManager.CreateInstance(SND_Anchor_Destroyed);
-			RuntimeManager.PlayOneShot(EVT_SND_Anchor_Destroyed);
+			EVT_SND_Anchor_Destroyed.start();
 		}
 
 
 		public void Urn_Hit(){
 			EventInstance EVT_SND_Urn_Hit = RuntimeManager.CreateInstance(SND_Urn_Hit);
-			RuntimeManager.PlayOneShot(EVT_SND_Urn_Hit);
+			EVT_SND_Urn_Hit.start();
 		}
 
 		public void Urn_Destroyed(){
 			EventInstance EVT_SND_Urn_Destroyed = RuntimeManager.CreateInstance(SND_Urn_Destroyed);
-			RuntimeManager.PlayOneShot(EVT_SND_Urn_Destroyed);
-		}
+			EVT_SND_Urn_Destroyed.start();		}
 
 
 		public void Coral_Green_Hit(){
 			EventInstance EVT_SND_Coral_Green_Hit = RuntimeManager.CreateInstance(SND_Coral_Green_Hit);
-			RuntimeManager.PlayOneShot(EVT_SND_Coral_Green_Hit);
-		}
+			EVT_SND_Coral_Green_Hit.start();		}
 
 
 		public void Coral_Red_Hit(){
 			EventInstance EVT_SND_Coral_Red_Hit = RuntimeManager.CreateInstance(SND_Coral_Red_Hit);
-			RuntimeManager.PlayOneShot(EVT_SND_Coral_Red_Hit);
-		}
+			EVT_SND_Coral_Red_Hit.start();		}
 
 		public void Coral_Green_Destroyed(){
 			EventInstance EVT_SND_Coral_Green_Destroyed = RuntimeManager.CreateInstance(SND_Coral_Green_Destroyed);
-			RuntimeManager.PlayOneShot(EVT_SND_Coral_Green_Destroyed);
-		}
+			EVT_SND_Coral_Green_Destroyed.start();		}
 
 		public void Ambience(){
 			EventInstance EVT_SND_Ambience = RuntimeManager.CreateInstance(SND_Ambience);
