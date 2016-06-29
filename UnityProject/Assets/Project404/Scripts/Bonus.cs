@@ -26,7 +26,7 @@ public class Bonus : MonoBehaviour, IItem, IEffector {
 	
 		public void ApplyEffect(Player p ){
 
-		
+			p.soundMan.Blob_Eat(p.PlayerDimension);
 			p.BonusCounter++;
 			Destroy (this.gameObject);
 			p.BonusEffect();

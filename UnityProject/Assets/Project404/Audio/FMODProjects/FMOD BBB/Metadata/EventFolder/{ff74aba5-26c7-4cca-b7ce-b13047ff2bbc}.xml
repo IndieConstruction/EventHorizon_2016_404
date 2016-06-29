@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="EventFolder" id="{ff74aba5-26c7-4cca-b7ce-b13047ff2bbc}">
+        <property name="name">
+            <value>blob banks</value>
+        </property>
+        <relationship name="folder">
+            <destination>{5a05f433-1eb9-460b-a817-13238461c768}</destination>
+        </relationship>
+    </object>
+</objects>

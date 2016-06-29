@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{4607a740-f340-4e6f-b549-e675d2a40b34}">
+        <property name="assetPath">
+            <value>BLOB_livell_loop_2.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>15.359999999999999</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{cef22b16-09f0-4a0d-8583-a0f2b9ccf53a}</destination>
+        </relationship>
+    </object>
+</objects>

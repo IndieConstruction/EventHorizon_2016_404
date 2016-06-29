@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
 		public float SpeedStadio3;
 		public float SpeedStadio4;
 		public float SpeedStadio5;
-
+		public FMOD_SoundManager soundMan;
 		// blob graphic
 		public Transform blob;
 
@@ -33,12 +33,19 @@ public class Player : MonoBehaviour {
 		}
 	// Use this for initialization
 	void Start () {
+			soundMan = FindObjectOfType<FMOD_SoundManager>();
 			BonusEffect();
+			StartSound ();
 			rb = gameObject.GetComponentInChildren<Rigidbody> ();
 			PlayerDimension = 1;
 			BonusCounter = 0;
 			animator = GetComponentInChildren<Animator>();
 	}
+		void StartSound () {
+			soundMan.Blob_Run(PlayerDimension);
+			soundMan.Music(0,1);
+			soundMan.Ambience();
+		}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -49,6 +56,7 @@ public class Player : MonoBehaviour {
 					return;
 				}
 				BonusCounter --;
+				//soundMan.Blob_GrowDown();
 				BonusEffect();
 				if (PlayerDimension <= MinPlayerDimension){
 					PlayerDimension=MinPlayerDimension;
@@ -64,6 +72,7 @@ public class Player : MonoBehaviour {
 
 		void PreSetUp (GameManager gameManager) {
 			gameMan = gameManager; 
+
 		}
 
 		//movimento della sfera
@@ -86,9 +95,19 @@ public class Player : MonoBehaviour {
 			Debug.Log("gravity");
 		}
 		public void Jump () {
+			soundMan.Blob_Jump(PlayerDimension);
 			animator.SetTrigger("Jump");
 
 		}
+		void CheckDimension (int Stadio) {
+			if (PlayerDimension < Stadio) {
+				soundMan.Blob_GrowUp();
+			}
+			else {
+				soundMan.Blob_GrowDown();
+			}
+		}
+
 		public void BonusEffect(){
 			if (BonusCounter <= BonusStadio1) {
 
@@ -96,6 +115,7 @@ public class Player : MonoBehaviour {
 			}
 			if (BonusCounter <=BonusStadio2) {
 				// Stadio 1
+				CheckDimension(1);
 				transform.localScale = new Vector3 (1, 1, 1);
 				blob.position = new Vector3 ( blob.position.x, -0.5f,blob.position.z);
 				PlayerDimension =1;
@@ -103,6 +123,7 @@ public class Player : MonoBehaviour {
 			}
 			else if (BonusCounter >BonusStadio2 && BonusCounter <=BonusStadio3) {
 				// Stadio 2
+				CheckDimension(2);
 				transform.localScale = new Vector3 (1.3f, 1.3f, 1.3f);
 				blob.position = new Vector3 ( blob.position.x, -0.4f,blob.position.z);
 				PlayerDimension =2;
@@ -110,6 +131,7 @@ public class Player : MonoBehaviour {
 			}
 			else if (BonusCounter >BonusStadio3 && BonusCounter <=BonusStadio4) {
 				// Stadio 3
+				CheckDimension(3);
 				blob.position = new Vector3 ( blob.position.x, -0.4f,blob.position.z);
 				transform.localScale = new Vector3 (1.6f, 1.6f, 1.6f);
 				PlayerDimension =3;
@@ -117,6 +139,7 @@ public class Player : MonoBehaviour {
 			}
 			else if (BonusCounter >BonusStadio4 && BonusCounter <=BonusStadio5) {
 				// Stadio 4
+				CheckDimension(4);
 				blob.position = new Vector3 ( blob.position.x, -0.35f,blob.position.z);
 				transform.localScale = new Vector3 (1.9f, 1.9f, 1.9f);
 				PlayerDimension =4;
@@ -124,6 +147,7 @@ public class Player : MonoBehaviour {
 			}
 			else if (BonusCounter > BonusStadio5) {
 				// Stadio 5
+				CheckDimension(5);
 				blob.position = new Vector3 ( blob.position.x, -0.3f,blob.position.z);
 				transform.localScale = new Vector3 (2.2f, 2.2f, 2.2f);
 				PlayerDimension =5;

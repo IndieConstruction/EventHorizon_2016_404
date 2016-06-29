@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{1f4c6468-be47-4334-96a2-dac1de05c3a2}">
+        <property name="assetPath">
+            <value>bolle_giud.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.4426666666666668</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{cef22b16-09f0-4a0d-8583-a0f2b9ccf53a}</destination>
+        </relationship>
+    </object>
+</objects>

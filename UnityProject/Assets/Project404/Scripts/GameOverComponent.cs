@@ -112,7 +112,27 @@ namespace EH.Project404{
 		}
 
 
+		public void RestartLevel (string ActualLevel) {
+			switch (ActualLevel) {
+			case "0":
+				SceneManager.LoadScene("LevelZero");
 
+				break;
+			case "1":
+				SceneManager.LoadScene("GameScene");
+
+				break;
+			case "2":
+				SceneManager.LoadScene("LevelTwo");
+
+				break;
+			case "3":
+				SceneManager.LoadScene("LevelThree");
+
+				break;
+			}
+
+		}
 
 
 

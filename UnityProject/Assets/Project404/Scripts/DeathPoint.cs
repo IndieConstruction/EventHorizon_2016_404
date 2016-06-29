@@ -19,7 +19,7 @@ public class DeathPoint : MonoBehaviour, IEffector {
 	
 		public void ApplyEffect(Player p ){
 			
-
+			p.soundMan.Blob_FallDead();
 			gameover.State = GameOverComponent.GameOverState.Lost;
 				Destroy (p.gameObject);
 				gm.GameOver();

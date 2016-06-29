@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{1ca84c8a-0ea8-4fc9-af99-1fcef4df122b}">
+        <property name="assetPath">
+            <value>distruzione_scrigno_giud.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.5800000000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{cef22b16-09f0-4a0d-8583-a0f2b9ccf53a}</destination>
+        </relationship>
+    </object>
+</objects>

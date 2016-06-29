@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{6f6e91b3-7499-4238-af2e-93f7f8726068}">
+        <property name="assetPath">
+            <value>distruzione_ancora_giud.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.6000000000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{cef22b16-09f0-4a0d-8583-a0f2b9ccf53a}</destination>
+        </relationship>
+    </object>
+</objects>

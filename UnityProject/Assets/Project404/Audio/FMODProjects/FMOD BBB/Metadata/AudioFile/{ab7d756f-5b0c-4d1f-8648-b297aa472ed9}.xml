@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{ab7d756f-5b0c-4d1f-8648-b297aa472ed9}">
+        <property name="assetPath">
+            <value>blob_eat_marci.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.066104166666666672</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{cef22b16-09f0-4a0d-8583-a0f2b9ccf53a}</destination>
+        </relationship>
+    </object>
+</objects>
