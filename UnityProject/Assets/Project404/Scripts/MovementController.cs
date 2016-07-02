@@ -55,7 +55,7 @@ namespace EH.Project404{
 			set{
 				if(actualNode != value){
 					Debug.Log ("sposto road node numero " + value);
-				//	value.transform.position =- value.transform.position;
+				
 
 				}
 				actualNode = value;

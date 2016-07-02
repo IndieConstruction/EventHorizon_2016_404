@@ -109,9 +109,7 @@ public class GameManager : MonoBehaviour {
 					spawnC.RandomSpawnItems();
 					MaxRoadsInGame--;
 				}
-				if (MaxRoadsInGame <= 0) {
-					Debug.Log ("Fine");
-				}
+
 
 				Destroy(other.gameObject, 1.0f);
 
@@ -120,7 +118,7 @@ public class GameManager : MonoBehaviour {
 				
 				spawnC.RandomSpawnItems();
 				Destroy(other.gameObject, 30.0f);
-				Debug.Log("INFINITO");
+
 			}
 
 		}

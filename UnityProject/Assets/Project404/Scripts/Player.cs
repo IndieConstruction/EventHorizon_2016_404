@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 		public int PlayerDimension =1;
 		public int MaxPlayerDimension;
 		public int MinPlayerDimension;
-		public float JumpSpeed = 450;
+	
 		Rigidbody rb;
 		public int BonusCounter;
 		public int BonusStadio1;
@@ -90,10 +90,7 @@ public class Player : MonoBehaviour {
 			transform.localScale -= vector;
 
 		}
-		public void Falling () {
-			rb.useGravity = true;
-			Debug.Log("gravity");
-		}
+	
 		public void Jump () {
 			soundMan.Blob_Jump(PlayerDimension);
 			animator.SetTrigger("Jump");

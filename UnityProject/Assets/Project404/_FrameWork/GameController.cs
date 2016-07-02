@@ -118,11 +118,11 @@
 //		GenericCounter ();
 //		//TODO : da eliminare
 //		if (CanSpawnItem() == true) {
-//			//Debug.Log ("Il bonus può spawnare") ;
+//		
 //			//RandomSpawnItems();
 //		}
 //		if (CanSpawnEnemy () == true) {
-//		//	Debug.Log ("L'enemy può spawnare");
+//		
 //			RandomSpawnEnemy ();
 //		}
 //		OnPlayerDeath ();

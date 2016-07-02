@@ -17,7 +17,7 @@ public class MovementCollider : MonoBehaviour {
 /// </summary>
 /// <param name="other">Other.</param>
 	void OnTriggerEnter(Collider other){
-			Debug.Log ("Collisione");
+			
 	 	if(other.GetComponent<RoadNode>()!= null ) {
 			if(mc.ActualNode == null)
 				mc.ActualNode = nm.GetFirstNode();

@@ -14,7 +14,7 @@ public class JumpPoint : MonoBehaviour,IEffector {
 	
 	}
 		public void ApplyEffect(Player p ){
-			Debug.Log("eseguo l'effetto del Jumppoint");
+			
 			if (p.PlayerDimension <=2){
 				p = p.GetComponent<Player> ();
 				p.Jump();

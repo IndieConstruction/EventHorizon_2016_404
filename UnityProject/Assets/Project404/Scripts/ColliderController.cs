@@ -14,11 +14,6 @@ public class ColliderController : MonoBehaviour {
 			if (effector != null) {
 			effector.ApplyEffect(p);
 			}
-			else {
-				Debug.Log("ho incontrato un non ieffector");
-			}
-
-
 
 		}
 

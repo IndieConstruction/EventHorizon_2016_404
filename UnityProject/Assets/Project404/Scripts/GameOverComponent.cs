@@ -136,9 +136,7 @@ namespace EH.Project404{
 
 
 
-		void Update () {
-
-		}
+	
 	}
 
 }

@@ -12,10 +12,6 @@ public class DeathPoint : MonoBehaviour, IEffector {
 			gm = FindObjectOfType<GameManager> ();
 
 		}
-		void OnDisable () {
-
-
-		}
 	
 		public void ApplyEffect(Player p ){
 			
